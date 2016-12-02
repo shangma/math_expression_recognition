@@ -7,6 +7,9 @@ image_root = config.image_root
 data_root = config.data_root
 K = config.K
 
+from display import showwithtitle
+from display import showname
+
 import matplotlib
 matplotlib.use('Agg')
 import sys
@@ -14,20 +17,29 @@ sys.path.insert(0, caffe_root + 'python')
 import caffe
 caffe.set_mode_cpu()
 
-import classify
+from classify import prediction
 import segmentation
 model = "lenet_test.prototxt"
-weight = "weights/lenet_iter_1000.caffemodel"
+weight = "weights/lenet_iter_9000.caffemodel"
 input_image = sys.argv[1]
 print "image is "+input_image
-"""
-segments = segmentation.segment(input_image)
-categories = test.prediction(segments, model, weight)
-print categories
 
-character = ["0","1","2","3","4","5","6","7","8","9","0","+","-","*","*"]
+segments = segmentation.segment(input_image)
+showname(segments)
+categories = prediction(segments, model, weight)
+print categories
+"""
+result = {}
+for i in xrange(len(categories)):
+   print i
+   print categories[i]
+   result[categories[i]] = segments[i]
+showwithtitle(result,5)
+"""
+character = ["0","1","2","3","4","5","6","7","8","9","+","-","*","*"]
 expression = ""
 for label in categories:
-	expression += character[lable]
-print expression+" = "+eval(expression)
-"""
+	expression += character[label]
+print expression
+#eval(expression)
+

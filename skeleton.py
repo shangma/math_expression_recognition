@@ -1,26 +1,13 @@
 from skimage.morphology import skeletonize
 from skimage import draw
 import numpy as np
-import matplotlib.pyplot as plt
 import cv2
-import matplotlib.image as mpimg
-
-def average(img):
-    #img = cv2.imread(image)
-    return np.average(img, axis=-1).astype('uint8')
 
 
-def show(img_list,column=3):
-    #image = mpimg.imread("chelsea-the-cat.png")
-    fig = plt.figure()
-    row = (len(img_list)-1)/column +1 
-    cell = column*10+row*100
-    i=0
-    for img in img_list:
-        i+=1
-        plt.subplot(cell+i)
-        plt.imshow(img, interpolation='nearest', cmap=plt.get_cmap('gray'))
-    plt.show()
+from display import show
+from display import showname
+
+
 
 def skele(img):
 # an empty image
@@ -31,10 +18,10 @@ def skele(img):
 	print img.shape
 
 	# perform skeletonization
-	skeleton = skeletonize(img)
+	skeleton_image = skeletonize(img)
 
-	show([img,skeleton],2)
-	return sketeton
+	show([img,skeleton_image],2)
+	return skeleton_image
 """
 # display results
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 4.5), sharex=True, sharey=True, subplot_kw={'adjustable':'box-forced'})

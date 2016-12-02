@@ -2,6 +2,7 @@ import os
 import numpy as np
 import config
 
+
 caffe_root = config.caffe_root
 image_root = config.image_root
 data_root = config.data_root
