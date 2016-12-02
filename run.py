@@ -20,9 +20,12 @@ caffe.set_mode_cpu()
 from classify import prediction
 import segmentation
 model = "lenet_test.prototxt"
-weight = "weights/lenet_iter_9000.caffemodel"
+weight = "weights/lenet_iter_5000.caffemodel"
 input_image = sys.argv[1]
 print "image is "+input_image
+
+
+showname([input_image],1)
 
 segments = segmentation.segment(input_image)
 showname(segments)
@@ -41,5 +44,8 @@ expression = ""
 for label in categories:
 	expression += character[label]
 print expression
-#eval(expression)
+try:
+	print expression + " = " + `eval(expression)`
+except SyntaxError:
+	print "Oops, I think there is something wrong. I can't understand this expression"
 

@@ -62,7 +62,8 @@ def segment(image):
         cnt = contours[i]
         x,y,w,h = cv2.boundingRect(cnt)
         if x<margin or x+w>width-margin or y<margin or y+h>height-margin:
-            continue
+            if(h < height/3):
+                continue
         if w>max_w:
             max_w = w
         if h>max_h:
@@ -108,7 +109,7 @@ def segment(image):
     
     return image_list
 
-segment(sys.argv[1])
+#segment(sys.argv[1])
 
 
 

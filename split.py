@@ -17,11 +17,12 @@ def split(ilist):
     #sort image according to width
     orders = sorted(dictionary.items(),key=lambda t:t[1],reverse=False)
 
+    print orders
     avewid = orders[0][1]
     sumwid = orders[0][1]
     #for each iteration, computer the average of the width of images so fall, if the current width is larger than the twice of avg, then it should be splitted
     for i in range(1,len(orders)):
-        if orders[i][1] > 1.95*avewid:
+        if orders[i][1] > 1.99*avewid and orders[i][1]>15:
             #for j in  range(i,len(orders)):
                 #print orders[j][0]
             return splitimage(orders, i, avewid)
@@ -43,7 +44,7 @@ def splitimage(ilist, start, avg):
         height, width, channels = img.shape
 
     	cut = 1
-    	while((cut+2)*avg<width):
+    	while((cut+2)*avg<width and width> 9.9*(cut+2)):
     		cut+=1
     	print `cut`+": "+ilist[i][0]
         #check how many times we need to split accoring to images width

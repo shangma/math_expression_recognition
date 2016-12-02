@@ -5,9 +5,10 @@ Network weights will be stored in 'weights' directory
 import os
 
 import config
+
 caffe_root = config.caffe_root
 image_root = config.image_root
-data_root = config.data_roottrain_image
+data_root = config.data_root
 K = config.K
 
 import matplotlib

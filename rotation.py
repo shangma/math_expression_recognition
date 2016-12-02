@@ -9,25 +9,28 @@ def angle(p0, p1, p2):
     dy1 = p1[1] - p0[1]
     dx2 = p2[0] - p0[0]
     dy2 = p2[1] - p0[1]
-    print `dx1`+", "+`dx2`+", "+`dy1`+", "+`dy2`
+    #print `dx1`+", "+`dx2`+", "+`dy1`+", "+`dy2`
     x = (dx1*dx2 + dy1*dy2)/(math.sqrt(dx1*dx1 + dy1*dy1)*math.sqrt(dx2*dx2 + dy2*dy2))
-    print "x = "+`x`
+    #print "x = "+`x`
     return x
 
 def findDegree(box):
+
     coordinates = {}
+    scal = max(box[0][1], box[1][1], box[2][1], box[3][1])
+    #print "max="+`scal`
     for i in xrange(4):
-        coordinates[box[i][0]] = box[i][1]
+        coordinates[box[i][0]*scal + box[i][1]] = box[i]
         print box[i]
     #order 
     orders = sorted(coordinates.items(),key=lambda t:t[0],reverse=False)
-    print orders
-    x1 = (orders[0][0]+orders[1][0])/2
-    y1 = (orders[0][1]+orders[1][1])/2
-    x2 = (orders[2][0]+orders[3][0])/2
-    y2 = (orders[2][1]+orders[3][1])/2
-    print "("+`x1`+", "+`y1`+")"
-    print "("+`x2`+", "+`y2`+")"
+    #print orders
+    x1 = (orders[0][1][0]+orders[1][1][0])/2
+    y1 = (orders[0][1][1]+orders[1][1][1])/2
+    x2 = (orders[2][1][0]+orders[3][1][0])/2
+    y2 = (orders[2][1][1]+orders[3][1][1])/2
+    #print "("+`x1`+", "+`y1`+")"
+    #print "("+`x2`+", "+`y2`+")"
     if y1<y2:
         print "y1<y2"
         return math.acos(angle((x1,y1),(x2,y2),(x2,y1)))

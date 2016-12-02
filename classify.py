@@ -28,7 +28,7 @@ def prediction(images_list, model, weight):
 		img = caffe.io.load_image(image, color=False)
 		net.blobs['data'].data[...] = transformer.preprocess('data', img)
 		out = net.forward()
-		print out['prob']
+		#print out['prob']
 		predicted_label = np.argmax(out['prob'][0])
 		categories.append(predicted_label)
 
