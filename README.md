@@ -62,9 +62,9 @@ Usage:
 
 0. Run:
 
-	a. Run 'python run.py path_to_your_image_file' will do the recognition. You should be able to see three windows. The first one is the original image; the second one is the segmentation result; and the last one is the recognition result together with the original image.
+	a. Run 'python run.py path_to_an_image_file' will do the recognition. You should be able to see three windows. The first one is the original image; the second one is the segmentation result; and the last one is the recognition result together with the original image. There are four test images inside the test_image folder for your convenience.
 
-	b. Run 'python test_all.py path_to_your_directory' will do recognition for all the expressions in that directory.
+	b. Run 'python test_all.py path_to_a_directory' will do recognition for all the expressions in that directory. The test_image folder is there for your convenience.
 
 The following are optional. You may follow them if re-training the network is needed:
 
