@@ -66,7 +66,8 @@ Usage:
 
 	b. Run 'python test_all.py path_to_your_directory' will do recognition for all the expressions in that directory.
 
-The following are optional. You may follow them if re-training the network is needed.
+The following are optional. You may follow them if re-training the network is needed:
+
 0. Configuration: To use this code, you need to firstly do some configuration. Go to config.py to configure all the parameters you might want to modify, such as the caffe root, categories of the classification...
 
 0. Train: Run 'python preprocessing.py' to train the network. The weight file with an extension of '.caffemodel' will be saved in the directory of 'weights'.
