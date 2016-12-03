@@ -50,25 +50,27 @@ Processing Pipeline:
 Performance:
 
 0. Segmentation Performance:
-The segmentation performance is very good. Accuracy is above 90% based on the given test images. Some errors happen when there is a narrow character such as a written '1'. In these cases, some very wide characters will be split to half.
+	The segmentation performance is very good. Accuracy is above 90% based on the given test images. Some errors happen when there is a narrow character such as a written '1'. In these cases, some very wide characters will be split to half.
 
 0. Recognition Performance:
+
 	a. Recognition for digits looks good, especially for machine-printed numbers. 
 	b. However, due to the lack of training data of operators, there is still room for improvement on this part.
 
 Usage:
 
 0. Configuration
-To use this code, you need to firstly do some configuration.
+	a. To use this code, you need to firstly do some configuration.
 Go to config.py to configure all the parameters you might want to modify, such as the caffe root, categories of the classification...
 
 0. Train
-Run 'python preprocessing.py' to train the network. The weight file with an extension of '.caffemodel' will be saved in the directory of 'weights'.
+	a. Run 'python preprocessing.py' to train the network. The weight file with an extension of '.caffemodel' will be saved in the directory of 'weights'.
 
-0. Run
-Run 'python run.py path_to_your_image_file' will do the recognition. You should be able to see three windows. The first one is the original image; the second one is the segmentation result; and the last one is the recognition result together with the original image.
+0. Run:
 
-Run 'python test_all.py path_to_your_directory' will do recognition for all the expressions in that directory.
+	a. Run 'python run.py path_to_your_image_file' will do the recognition. You should be able to see three windows. The first one is the original image; the second one is the segmentation result; and the last one is the recognition result together with the original image.
+
+	b. Run 'python test_all.py path_to_your_directory' will do recognition for all the expressions in that directory.
 
 
 
