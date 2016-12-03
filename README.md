@@ -14,6 +14,7 @@ Requirements:
 0. Only tested on Ubuntu 14.04.
 
 Processing Pipeline:
+
 0. Collect data and train the network (preprocessing.py):
 	a. I used the MNIST images.
 	Images of operators, such as '+', '-', and 'x', are taken from CHROHME dataset which provides a list of <x,y> coordinates drawn by users and transferred to bitmap images. The star operator '*' images are drawn by myself.
