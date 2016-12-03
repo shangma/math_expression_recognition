@@ -2,15 +2,15 @@
 This project is used to recognize an mathematics expression image and give calculate result.
 
 Requirements:
-	1. python 2.7
-	2. caffe
-	3. python package:
-		* OpenCV
-		* scikit-image
-	4. Training images are saved in folder images as:
+	0. python 2.7
+	0. caffe
+	0. python package:
+		0. OpenCV
+		0. scikit-image
+	0. Training images are saved in folder images as:
 		images/train_images/'lable'/image_file_end_in_.bmp
 		images/test_images/'lable'/image_file_end_in_.bmp
-	5. Only tested on Ubuntu 14.04.
+	0. Only tested on Ubuntu 14.04.
 
 Processing Pipeline:
 	1. Collect data and train the network (preprocessing.py)
