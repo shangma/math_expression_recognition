@@ -14,26 +14,26 @@ Requirements:
 
 Processing Pipeline:
 	1. Collect data and train the network (preprocessing.py)
-		(1) I used the MNIST images.
+		a. I used the MNIST images.
 		Images of operators, such as '+', '-', and 'x', are taken from CHROHME dataset which provides a list of <x,y> coordinates drawn by users and transferred to bitmap images. The star operator '*' images are drawn by myself.
 
-		(2) I choose to use the lenet network because it is proved to be more proper for recognizing handwritten and machine-printed expression. Besides, the network itself is relatively small so I can train it on my own computer.
+		b. I choose to use the lenet network because it is proved to be more proper for recognizing handwritten and machine-printed expression. Besides, the network itself is relatively small so I can train it on my own computer.
 
 	2. Image segmentation, a.k.a segment the expression to numbers and operators (segmentation.py)
-		(1) Convert images from rgb to grayscale
+		a. Convert images from rgb to grayscale
 		I tried cv2.cvtColor function and my own average function which simply averages the rgb values and use that for a specific bit.
 
-		(2) Smooth the image to remove noises
+		b. Smooth the image to remove noises
 		I tried median, gaussian, and bilateral filters, respectively. The first two cannot preserve the borders of an image. So I choose bilateralFilter instead.
 
-		(3) Convert to binary image
+		c. Convert to binary image
 		To find the contours of numbers/operators, the image need to be binary. I used adaptiveThreshold to do so.
 
-		(4) Rotate image
+		d. Rotate image
 		Rotating the image to a right angle can help separate original images to numbers and operators. It is also useful at the recognition stage. 
 		To rotate an image, I first dilate it to make sure there is only one big blob. Based on the minimum bounding box of this blob, I can calculate the angle for rotation and do it afterwards.
 
-		(5) Find contours of digits/operators
+		e. Find contours of digits/operators
 		I use findContours function to find contours of digits/operators, and masks to cut them out from left to right. Here I remove the contours which are much closed to the border of the original image. That might be from other expression.
 
 		After that, I found it's still very difficult to segment some characters since they are too closed to each other. So to solve the problem, I write a split function, which separates the segmentations which are twice width of the average of other small images.
@@ -48,8 +48,8 @@ Performance:
 	The segmentation performance is very good. Accuracy is above 90% based on the given test images. Some errors happen when there is a narrow character such as a written '1'. In these cases, some very wide characters will be split to half.
 
 	2. Recognition Performance:
-		(1) Recognition for digits looks good, especially for machine-printed numbers. 
-		(2) However, due to the lack of training data of operators, there is still room for improvement on this part.
+		a. Recognition for digits looks good, especially for machine-printed numbers. 
+		b. However, due to the lack of training data of operators, there is still room for improvement on this part.
 
 Usage:
 	1. Configuration
