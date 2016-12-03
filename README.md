@@ -16,12 +16,14 @@ Requirements:
 Processing Pipeline:
 
 0. Collect data and train the network (preprocessing.py):
+
 	a. I used the MNIST images.
 	Images of operators, such as '+', '-', and 'x', are taken from CHROHME dataset which provides a list of <x,y> coordinates drawn by users and transferred to bitmap images. The star operator '*' images are drawn by myself.
 
 	b. I choose to use the lenet network because it is proved to be more proper for recognizing handwritten and machine-printed expression. Besides, the network itself is relatively small so I can train it on my own computer.
 
-0. Image segmentation, a.k.a segment the expression to numbers and operators (segmentation.py)
+0. Image segmentation, a.k.a segment the expression to numbers and operators (segmentation.py):
+
 	a. Convert images from rgb to grayscale
 	I tried cv2.cvtColor function and my own average function which simply averages the rgb values and use that for a specific bit.
 
