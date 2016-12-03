@@ -55,8 +55,8 @@ Performance:
 
 0. Recognition Performance:
 
-	a. Recognition for digits looks good, especially for machine-printed numbers. 
-	b. However, due to the lack of training data of operators, there is still room for improvement on this part.
+	0. Recognition for digits looks good, especially for machine-printed numbers. 
+	0. However, due to the lack of training data of operators, there is still room for improvement on this part.
 
 Usage:
 
