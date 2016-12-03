@@ -17,7 +17,11 @@ def showname(img_list,column=3,title="My Calculation"):
             break
         plt.subplot(cell+i)
         plt.imshow(img, interpolation='nearest', cmap=plt.get_cmap('gray'))
-    plt.suptitle(title)
+    #plt.suptitle(title)
+    if row == 1:
+        fig.text(0.5, 0.8, title, ha="center", va="bottom", fontsize=17, color = "red")
+    else:
+        fig.text(0.5, 0.9, title, ha="center", va="bottom", fontsize=17, color = "red")
     plt.show()
 
 """
@@ -35,7 +39,7 @@ def show(img_list,column=3,title="My Calculation"):
             break
         plt.subplot(cell+i)
         plt.imshow(img, interpolation='nearest', cmap=plt.get_cmap('gray'))
-    plt.suptitle(title)
+    #plt.suptitle(title)
     plt.show()
 
 """
@@ -53,9 +57,9 @@ def showwithtitle(img_list,column=3,title="My Calculation"):
         if i>9:
             break
         plt.subplot(cell+i)
-        plt.title(title)
+        #plt.title(title)
         plt.imshow(img, interpolation='nearest', cmap=plt.get_cmap('gray'))
-    plt.suptitle(title)
+    fig.text(0.5, 0.9, title, ha="center", va="bottom", fontsize=20, color = "red")
     plt.show()
 
 """

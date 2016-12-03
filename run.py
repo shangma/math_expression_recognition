@@ -8,6 +8,7 @@ data_root = config.data_root
 K = config.K
 model = config.model
 weight = config.weight
+character = config.character
 
 from display import showwithtitle
 from display import showname
@@ -35,6 +36,10 @@ showname([input_image],1,"Original Image")
 
 segments = segmentation.segment(input_image)
 showname(segments,3,"Segmentation Results")
+
+weight = "weights/lenet_iter_3000.caffemodel"
+
+
 categories = prediction(segments, model, weight)
 print categories
 """
@@ -45,7 +50,7 @@ for i in xrange(len(categories)):
    result[categories[i]] = segments[i]
 showwithtitle(result,5)
 """
-character = ["0","1","2","3","4","5","6","7","8","9","+","-","*","*"]
+
 expression = ""
 for label in categories:
 	expression += character[label]
@@ -54,7 +59,7 @@ msg = ""
 try:
 	msg = "Your expression is:\n"+expression + " = " + `eval(expression)`
 except SyntaxError:
-	msg = "Oops, I think there is something wrong. I can't understand this expression"
+	msg = "Oops, I think there is something wrong.\n I can't understand this expression\n"+expression
 showname([input_image],1,msg)
 
 
