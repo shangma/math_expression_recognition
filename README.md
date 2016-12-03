@@ -41,6 +41,7 @@ Processing Pipeline:
 	I use findContours function to find contours of digits/operators, and masks to cut them out from left to right. Here I remove the contours which are much closed to the border of the original image. That might be from other expression.
 
 	After that, I found it's still very difficult to segment some characters since they are too closed to each other. So to solve the problem, I write a split function, which separates the segmentations which are twice width of the average of other small images.
+		
 	All the cropped images are converted to a square, resized to 28x28, and then saved as bitmap images.
 
 0. Classify the saved bitmap images (classify.py)
@@ -59,12 +60,9 @@ Performance:
 
 Usage:
 
-0. Configuration
-	a. To use this code, you need to firstly do some configuration.
-Go to config.py to configure all the parameters you might want to modify, such as the caffe root, categories of the classification...
+0. Configuration: To use this code, you need to firstly do some configuration. Go to config.py to configure all the parameters you might want to modify, such as the caffe root, categories of the classification...
 
-0. Train
-	a. Run 'python preprocessing.py' to train the network. The weight file with an extension of '.caffemodel' will be saved in the directory of 'weights'.
+0. Train: Run 'python preprocessing.py' to train the network. The weight file with an extension of '.caffemodel' will be saved in the directory of 'weights'.
 
 0. Run:
 
