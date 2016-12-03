@@ -5,7 +5,7 @@ import matplotlib.image as mpimg
 show images
 input: list of image names
 """
-def showname(img_list,column=3):
+def showname(img_list,column=3,title="My Calculation"):
     fig = plt.figure()
     row = (len(img_list)-1)/column +1 
     cell = column*10+row*100
@@ -15,13 +15,14 @@ def showname(img_list,column=3):
         i+=1
         plt.subplot(cell+i)
         plt.imshow(img, interpolation='nearest', cmap=plt.get_cmap('gray'))
+    plt.suptitle(title)
     plt.show()
 
 """
 show images
 input: list of image files
 """
-def show(img_list,column=3):
+def show(img_list,column=3,title="My Calculation"):
     fig = plt.figure()
     row = (len(img_list)-1)/column +1 
     cell = column*10+row*100
@@ -30,13 +31,14 @@ def show(img_list,column=3):
         i+=1
         plt.subplot(cell+i)
         plt.imshow(img, interpolation='nearest', cmap=plt.get_cmap('gray'))
+    plt.suptitle(title)
     plt.show()
 
 """
 show images with titles
 input: list of image names
 """
-def showwithtitle(img_list,column=3):
+def showwithtitle(img_list,column=3,title="My Calculation"):
     fig = plt.figure()
     row = (len(img_list)-1)/column +1 
     cell = column*10+row*100
@@ -47,6 +49,7 @@ def showwithtitle(img_list,column=3):
         plt.subplot(cell+i)
         plt.title(title)
         plt.imshow(img, interpolation='nearest', cmap=plt.get_cmap('gray'))
+    plt.suptitle(title)
     plt.show()
 
 """

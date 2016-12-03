@@ -14,7 +14,8 @@ from display import showname
 
 def segment(image):
     timestamp = time.time()
-    segment_dir = image+"_"+`timestamp`
+    splitstrs = image.split('/')
+    segment_dir = "segmentation/"+splitstrs[-1]+"_"+`timestamp`
     os.mkdir(segment_dir)
     # Load the image
     img = cv2.imread(image)

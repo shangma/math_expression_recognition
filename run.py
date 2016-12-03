@@ -6,9 +6,14 @@ caffe_root = config.caffe_root
 image_root = config.image_root
 data_root = config.data_root
 K = config.K
+model = config.model
+weight = config.weight
 
 from display import showwithtitle
 from display import showname
+
+import Tkinter
+import tkMessageBox
 
 import matplotlib
 matplotlib.use('Agg')
@@ -19,16 +24,17 @@ caffe.set_mode_cpu()
 
 from classify import prediction
 import segmentation
-model = "lenet_test.prototxt"
-weight = "weights/lenet_iter_5000.caffemodel"
+
+if os.path.isdir("segmentation") is not True:
+	os.makedirs("segmentation")
+
 input_image = sys.argv[1]
 print "image is "+input_image
 
-
-showname([input_image],1)
+showname([input_image],1,"Original Image")
 
 segments = segmentation.segment(input_image)
-showname(segments)
+showname(segments,3,"Segmentation Results")
 categories = prediction(segments, model, weight)
 print categories
 """
@@ -44,8 +50,13 @@ expression = ""
 for label in categories:
 	expression += character[label]
 print expression
+msg = ""
 try:
-	print expression + " = " + `eval(expression)`
+	msg = "Your expression is:\n"+expression + " = " + `eval(expression)`
 except SyntaxError:
-	print "Oops, I think there is something wrong. I can't understand this expression"
+	msg = "Oops, I think there is something wrong. I can't understand this expression"
+showname([input_image],1,msg)
+
+
+
 

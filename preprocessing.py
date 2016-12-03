@@ -10,6 +10,7 @@ caffe_root = config.caffe_root
 image_root = config.image_root
 data_root = config.data_root
 K = config.K
+solver = config.solver
 
 import matplotlib
 matplotlib.use('Agg')
@@ -20,11 +21,13 @@ caffe.set_mode_cpu()
 
 import convert
 
+if os.path.isdir("weights") is not True:
+	os.makedirs("weights")
+
 #create lmdb data
 convert.convert("train_image")
 convert.convert("test_image")
 
 #train net
-cmd = caffe_root + "build/tools/caffe train --solver=lenet_solver.prototxt"
+cmd = caffe_root + "build/tools/caffe train --solver=" + solver
 os.popen(cmd)
-
