@@ -37,7 +37,7 @@ showname([input_image],1,"Original Image")
 segments = segmentation.segment(input_image)
 showname(segments,3,"Segmentation Results")
 
-weight = "weights/lenet_iter_3000.caffemodel"
+#weight = "weights/lenet_iter_3000.caffemodel"
 
 
 categories = prediction(segments, model, weight)
@@ -60,6 +60,7 @@ try:
 	msg = "Your expression is:\n"+expression + " = " + `eval(expression)`
 except SyntaxError:
 	msg = "Oops, I think there is something wrong.\n I can't understand this expression\n"+expression
+print "Showing result of:\n "+input_image
 showname([input_image],1,msg)
 
 
