@@ -55,8 +55,8 @@ Performance:
 
 0. Recognition Performance:
 
-	0. Recognition for digits looks good, especially for machine-printed numbers. 
-	0. However, due to the lack of training data of operators, there is still room for improvement on this part.
+	0. Recognition for digits looks good, especially for machine-printed numbers. There are still some errors for 1 and 7. Sometimes, if 7 is wrtten with a horizontal line in the middle, it will be recognized as a plus sign.
+	0. Recognition for operators looks good for '+', 'x', and '*'. The operator '-' is  difficult. When it is very short, it looks like a dot, and the network cannot recognize it properly.
 
 Usage:
 
